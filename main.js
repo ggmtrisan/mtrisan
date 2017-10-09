@@ -116,7 +116,7 @@ class LINE extends Command {
         let receiver = messages.to;
         let sender = messages.from;
         
-        this.command('Halo', ['halo juga','ini siapa?']);
+        this.command('Halo', ['iya halo sayang','bisa kali di halalin?']);
         this.command('kamu siapa', this.getProfile.bind(this));
         this.command('.status', `Your Status: ${JSON.stringify(this.stateStatus)}`);
         this.command(`.left ${payload}`, this.leftGroupByName.bind(this));
@@ -137,7 +137,7 @@ class LINE extends Command {
         this.command(`.spam ${payload}`,this.spamGroup.bind(this));
         
         if(messages.contentType == 13) {
-            messages.contentType = 0;
+            messages.contentType = 1;
             this._sendMessage(messages,messages.contentMetadata.mid);
         }
 
