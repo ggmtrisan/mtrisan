@@ -11,8 +11,8 @@ class LINE extends Command {
         this.receiverID = '';
         this.checkReader = [];
         this.stateStatus = {
-            cancel: 0,
-            kick: 0,
+            cancel: 1,
+            kick: 1,
         };
         this.messages;
         this.payload;
@@ -117,15 +117,15 @@ class LINE extends Command {
         let sender = messages.from;
         
         this.command('Halo', ['iya halo sayang','bisa kali di halalin?']);
-        this.command('kamu siapa', this.getProfile.bind(this));
+        this.command('Salken', this.getProfile.bind(this));
         this.command('.status', `Your Status: ${JSON.stringify(this.stateStatus)}`);
         this.command(`.left ${payload}`, this.leftGroupByName.bind(this));
         this.command('.speed', this.getSpeed.bind(this));
         this.command('.ker', this.checkKernel.bind(this));
-        this.command(`kick ${payload}`, this.OnOff.bind(this));
-        this.command(`cancel ${payload}`, this.OnOff.bind(this));
-        this.command(`.kickall ${payload}`,this.kickAll.bind(this));
-        this.command(`.cancelall ${payload}`, this.cancelMember.bind(this));
+        this.command(`.kick on' ${payload}`, this.OnOff.bind(this));
+        this.command(`.cancel off' ${payload}`, this.OnOff.bind(this));
+        this.command(`.kickall' ${payload}`,this.kickAll.bind(this));
+        this.command(`.cancelall' ${payload}`, this.cancelMember.bind(this));
         this.command(`.set`,this.setReader.bind(this));
         this.command(`.intip`,this.rechecks.bind(this));
         this.command(`.all`,this.clearall.bind(this));
